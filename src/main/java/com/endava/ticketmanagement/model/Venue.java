@@ -5,20 +5,20 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="Venue")
+@Table(name="venue")
 public class Venue implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column(name = "VenueID")
+    @Column(name = "venueid")
     private int venueID;
 
-    @Column(name = "Location")
+    @Column(name = "location")
     private String location;
 
-    @Column(name = "Type")
+    @Column(name = "type")
     private String type;
 
-    @Column(name = "Capacity")
+    @Column(name = "capacity")
     private int capacity;
 
     public Venue() {

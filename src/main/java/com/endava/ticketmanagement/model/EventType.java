@@ -6,14 +6,14 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import java.io.Serializable;
 
 @Entity
-@Table(name="EventType")
+@Table(name="event_type")
 public class EventType  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "EventTypeID")
+    @Column(name = "event_typeid")
     private int eventTypeID;
 
-    @Column(name = "EventTypeName")
+    @Column(name = "event_type_name")
     private String eventTypeName;
 
     public EventType() {

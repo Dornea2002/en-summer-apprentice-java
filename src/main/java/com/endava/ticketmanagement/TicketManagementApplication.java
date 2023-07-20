@@ -1,8 +1,5 @@
 package com.endava.ticketmanagement;
 
-import com.endava.ticketmanagement.controller.AccountController;
-import com.endava.ticketmanagement.model.Account;
-import com.endava.ticketmanagement.service.AccountService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -33,32 +30,23 @@ public class TicketManagementApplication {
 //		System.out.println("Spring will create a container.It will wrap your application in a Spring Application Context");
 //		System.out.println("It will manage object creation and it will handle their dependencies and wiring");
 
-        ConfigurableApplicationContext context = SpringApplication.run(TicketManagementApplication.class, args);
+//        ConfigurableApplicationContext context = SpringApplication.run(TicketManagementApplication.class, args);
 
         //Not a bean, I need to instantiate myself with new
-        Account account = new Account("012");
-        System.out.println(account);
 
-        //a bean, so I just get it from the context
-        AccountService as1 = context.getBean(AccountService.class);
-        AccountService as2 = context.getBean(AccountService.class);
-        System.out.println(as1.toString());
-        System.out.println(as2.toString());
         //each time I want the account service bean, I get the same one ---> singleton pattern
 
         //checkout all the default beans
-        for (String s : context.getBeanDefinitionNames()) {
+//        for (String s : context.getBeanDefinitionNames()) {
 //			System.out.println("This is a bean: " + s);
-        }
+//        }
 
         // is Printer a bean? No: because it lives outside the package
 
 //		System.out.println("A4:2. Dependency injection");
 //		System.out.println("Objects are injected with their dependencies rather than creating them directly");
 
-        AccountController ac = context.getBean(AccountController.class);
-        ac.toString(); //checkout AC to see it has the same AccountService instance at this point --> so spring has injected it for us
-//
+
 //		System.out.println("A4:3. AOP - Aspect-oriented Programming");
 //		System.out.println("In spring, AOP enables you to apply concepts easily in a declarative manner.Eg: logging, security, transaction management");
 //

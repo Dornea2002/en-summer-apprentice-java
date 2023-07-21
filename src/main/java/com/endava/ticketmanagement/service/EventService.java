@@ -21,4 +21,8 @@ public class EventService {
     public Event createEvent(Event event){
         return eventRepository.save(event);
     }
+
+    public List<Event> eventFindBy(Integer venueID, String eventType){
+        return eventRepository.findEventByVenueVenueIDAndEventType_EventTypeName(venueID, eventType);
+    }
 }

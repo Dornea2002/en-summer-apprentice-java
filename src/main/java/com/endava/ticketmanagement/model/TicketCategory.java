@@ -21,4 +21,36 @@ public class TicketCategory implements Serializable {
 
     @Column(name = "price")
     private Double price;
+
+    public int getTicketCategoryID() {
+        return ticketCategoryID;
+    }
+
+    public void setTicketCategoryID(int ticketCategoryID) {
+        this.ticketCategoryID = ticketCategoryID;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }

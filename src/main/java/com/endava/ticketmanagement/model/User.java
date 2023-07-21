@@ -3,6 +3,7 @@ package com.endava.ticketmanagement.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -17,6 +18,17 @@ public class User implements Serializable {
     private String userName;
     @Column(name = "email")
     private String email;
+
+//    @OneToMany(mappedBy = "user")
+//    private List<Order> ordersList;
+
+//    public List<Order> getOrdersList() {
+//        return ordersList;
+//    }
+//
+//    public void setOrdersList(List<Order> ordersList) {
+//        this.ordersList = ordersList;
+//    }
 
     public int getUserID() {
         return userID;

@@ -2,6 +2,7 @@ package com.endava.ticketmanagement.controller;
 
 import com.endava.ticketmanagement.model.Order;
 import com.endava.ticketmanagement.service.OrdersService;
+import com.endava.ticketmanagement.service.dto.OrderDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +24,7 @@ public class OrdersController {
     }
 
     @PostMapping("/orders/create")
-    public Order createOrder(@RequestBody Order orders){
-        return ordersService.createOrder(orders);
+    public Order createOrder(@RequestBody OrderDTO orderDTO) throws Exception {
+        return ordersService.createOrder(orderDTO);
     }
 }

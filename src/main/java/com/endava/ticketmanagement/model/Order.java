@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Entity
 @Table(name = "orders")
@@ -17,8 +18,9 @@ public class Order implements Serializable {
     @JoinColumn(name = "userid", referencedColumnName = "userid")
     private User user;
 
-    @ManyToOne
+
     @JoinColumn(name = "ticket_categoryid", referencedColumnName = "ticket_categoryid")
+    @ManyToOne(cascade = CascadeType.ALL)
     private TicketCategory ticketCategory;
 
     @Column(name = "ordered_at")
@@ -41,8 +43,8 @@ public class Order implements Serializable {
         return user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Optional<User> user) {
+        this.user = user.get();
     }
 
     public TicketCategory getTicketCategory() {

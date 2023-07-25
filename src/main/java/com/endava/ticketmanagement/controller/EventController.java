@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 public class EventController {
+
     private EventService eventService;
 
     @Autowired

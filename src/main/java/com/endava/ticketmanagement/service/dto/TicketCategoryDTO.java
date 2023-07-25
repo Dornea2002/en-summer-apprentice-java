@@ -18,4 +18,53 @@ public class TicketCategoryDTO {
         this.description = ticketCategory.getDescription();
         this.price = ticketCategory.getPrice();
     }
+
+    public TicketCategoryDTO(){
+
+    }
+
+    public int getTicketCategoryID() {
+        return ticketCategoryID;
+    }
+
+    public void setTicketCategoryID(int ticketCategoryID) {
+        this.ticketCategoryID = ticketCategoryID;
+    }
+
+    public int getEventID() {
+        return eventID;
+    }
+
+    public void setEventID(int eventID) {
+        this.eventID = eventID;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public TicketCategoryDTO conversion(TicketCategory ticketCategory){
+
+        TicketCategoryDTO ticketCategoryDTO=new TicketCategoryDTO();
+
+        ticketCategoryDTO.setTicketCategoryID(ticketCategory.getTicketCategoryID());
+        ticketCategoryDTO.setDescription(ticketCategory.getDescription());
+        ticketCategoryDTO.setPrice(ticketCategory.getPrice());
+        ticketCategoryDTO.setEventID(ticketCategory.getEvent().getEventID());
+
+        return ticketCategoryDTO;
+
+    }
 }

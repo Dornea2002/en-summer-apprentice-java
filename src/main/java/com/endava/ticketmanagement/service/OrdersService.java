@@ -32,6 +32,23 @@ public class OrdersService {
         return ordersRepository.findAll();
     }
 
+    public List<Order> findByUserID(int userID){
+        return ordersRepository.findByUser_UserID(userID);
+    }
+
+    public static OrderDTO orderFindById(Order order) {
+        OrderDTO orderDTO = new OrderDTO();
+
+        orderDTO.setTicketCategoryID(order.getTicketCategory().getTicketCategoryID());
+        orderDTO.setNumberOfTickets(order.getNumberOfTickets());
+        orderDTO.setOrderedAt(order.getOrderedAt());
+        orderDTO.setTotalPrice(order.getTotalPrice());
+        orderDTO.setEventID(order.getTicketCategory().getEvent().getEventID());
+
+        return orderDTO;
+
+    }
+
     public Order createOrder(OrderDTO orderDTO) throws Exception {
         Order order = new Order();
 

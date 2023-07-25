@@ -1,5 +1,6 @@
 package com.endava.ticketmanagement.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -14,6 +15,7 @@ public class TicketCategory implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "eventid", referencedColumnName = "eventid")
+    @JsonManagedReference
     private Event event;
 
     @Column(name = "description")

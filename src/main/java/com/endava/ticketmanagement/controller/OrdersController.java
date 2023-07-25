@@ -6,7 +6,9 @@ import com.endava.ticketmanagement.service.dto.OrderDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class OrdersController {
@@ -26,5 +28,12 @@ public class OrdersController {
     @PostMapping("/orders/create")
     public Order createOrder(@RequestBody OrderDTO orderDTO) throws Exception {
         return ordersService.createOrder(orderDTO);
+    }
+
+    @GetMapping("/orders/findBy")
+    @ResponseBody
+    public List<OrderDTO> orderFindByID(@RequestParam int customerID){
+        List<Order> orders=ordersService.findByUserID(customerID);
+        return orders.stream().map(OrdersService::orderFindById).collect(Collectors.toList());
     }
 }

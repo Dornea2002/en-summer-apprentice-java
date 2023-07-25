@@ -1,15 +1,12 @@
 package com.endava.ticketmanagement.service.dto;
 
 import com.endava.ticketmanagement.model.Event;
-import com.endava.ticketmanagement.model.EventType;
-import com.endava.ticketmanagement.model.TicketCategory;
-import com.endava.ticketmanagement.model.Venue;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 @JsonSerialize
 public class EventDTO {
 
@@ -24,7 +21,6 @@ public class EventDTO {
     private List<TicketCategoryDTO> ticketCategoryDTOList;
 
     private VenueDTO venueDTO;
-    private String eventTypeName;
 
     public EventDTO(Event event) {
         this.eventID = event.getEventID();
@@ -32,8 +28,7 @@ public class EventDTO {
         this.eventName = event.getEventName();
         this.startDate = event.getStartDate();
         this.endDate = event.getEndDate();
-        this.venueDTO=new VenueDTO();
-        this.eventTypeName=event.getEventType().getEventTypeName();
+        this.venueDTO = new VenueDTO();
         this.ticketCategoryDTOList = new ArrayList<>();
     }
 
@@ -91,13 +86,5 @@ public class EventDTO {
 
     public void setVenueDTO(VenueDTO venueDTO) {
         this.venueDTO = venueDTO;
-    }
-
-    public String getEventTypeName() {
-        return eventTypeName;
-    }
-
-    public void setEventTypeName(String eventTypeName) {
-        this.eventTypeName = eventTypeName;
     }
 }
